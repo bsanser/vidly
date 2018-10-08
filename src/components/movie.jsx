@@ -5,7 +5,7 @@ const Movie = (props) => {
   return (
     <tr>
       <th>{title}</th>
-      <td>{genre}</td>
+      <td>{genre.name}</td>
       <td>{numberInStock}</td>
       <td>{dailyRentalDate}</td>
    </tr>
