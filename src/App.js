@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import MoviesList from './components/moviesList';
 import Pagination from './components/shared/pagination';
-import {getMovies} from './services/fakeMovieService';
+import { getMovies } from './services/fakeMovieService';
+
 
 
 class App extends Component {
@@ -32,11 +33,13 @@ class App extends Component {
 
   render() {
     const count = this.state.movies.length;
-    const {pageSize, currentPage} = this.state;
+    const {pageSize, currentPage, movies} = this.state;
     return (
       <main className="container">
        <MoviesList
-        movies={this.state.movies}
+        movies={movies}
+        currentPage = {currentPage}
+        pageSize = {pageSize}
         handleLike={this.handleLike}
         handleDelete={this.handleDelete}/>
        <Pagination 

@@ -1,11 +1,14 @@
 import React from 'react';
 import Movie from '../components/movie';
-
+import { paginate } from '../components/utils/paginate';
 
 const MoviesList = props => {
     const {length: count} = props.movies;
 
     if (count === 0) return <p className="text-center m-3">No movies in the database</p>;
+    
+    const movies = paginate(props.movies, props.currentPage,props.pageSize);
+
     return (
       <React.Fragment>
         <p className="text-center m-2">Showing {props.movies.length} in the database</p>
@@ -20,7 +23,7 @@ const MoviesList = props => {
             </tr>
           </thead>
           <tbody>
-            {props.movies.map(m => <Movie key= {m._id} movie={m} handleDelete={props.handleDelete} handleLike={props.handleLike}/>)}
+            {movies.map(m => <Movie key= {m._id} movie={m} handleDelete={props.handleDelete} handleLike={props.handleLike}/>)}
           </tbody>
         </table>
       </React.Fragment>
