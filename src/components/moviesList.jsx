@@ -4,14 +4,15 @@ import { paginate } from '../components/utils/paginate';
 
 const MoviesList = props => {
     const {length: count} = props.movies;
+    const { filteredMovies } = props;
 
     if (count === 0) return <p className="text-center m-3">No movies in the database</p>;
     
-    const movies = paginate(props.movies, props.currentPage,props.pageSize);
+    const movies = paginate(filteredMovies, props.currentPage,props.pageSize);
 
     return (
       <React.Fragment>
-        <p className="text-center m-2">Showing {props.movies.length} in the database</p>
+        <p className="text-center m-2">Showing {filteredMovies.length} in the database</p>
       
         <table className="table m-2">
           <thead>

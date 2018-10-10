@@ -22,11 +22,14 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-bar {
+  margin-top: 16px;
+  margin-right: 10px;
+  width: 200px;
 }
